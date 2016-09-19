@@ -34,9 +34,22 @@ we can see that only `android-24` is installed. Run Android Studio and in `Confi
 In order to run react-native android, the
 
 ```
-android create avd -t "android-23" -n bes -b default/x86_64
-emulator -avd bes
+* What went wrong:
+Execution failed for task ':app:installDebug'.
+> com.android.builder.testing.api.DeviceException: No connected devices!
+
+# it means we need to run an emulator
+
+
 ```
+
+```
+android create avd -t "android-23" -n <your-device-name> -b default/x86_64
+emulator -avd <your-device-name>
+```
+
+- what does emulator do? `emulator -help` and check list of AVDs `emulator -list-avds`.
+
 http://stackoverflow.com/questions/4974568/how-do-i-launch-the-android-emulator-from-the-command-line
 
 ## Release to Google Play
@@ -56,9 +69,42 @@ Google Api Error: apkUpgradeVersionConflict: APK specifies a version code that h
 Change the version number in `android/app/build.gradle`, which seems enough.
 What's the difference with `android/app/src/main/AndroidManifest.xml`?
 
+TODO:
+
+- navigation experimental
+- fastlane implement screenshot and asset preparation
+- android push notification
+
+## Android push notifications
+
+> The Ads Manager implementation is not generic enough - it's tied with FB infra and pretty specific to Ads Manager itself.
+
+> The reason why this is a significantly harder problem on Android than on iOS is because Android gives you much more flexibility in dealing with push notifications. On iOS, when the server sends a push notification, no application code is invoked in the app, instead a notification is shown based on the payload and the app is invoked if/when the user taps on it.
+
+> On Android, the push notification actually triggers a [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver.html) that is then responsible for reading the payload and deciding what to do with it. It can show a notification based strictly on the payload content or start a [Service](https://developer.android.com/reference/android/app/Service.html) to make a network request to pull more info before showing one. Or, it can decide to ignore the push. Basically, you can run any code on a push.
+
+> This makes it hard because we want to have the business logic of handling a push in JS. This means running JS in a Service without a UI (so no ReactRootView...), ideally with a minimal / different / smaller bundle than the main app, for performance reasons (this is run while the device is awake just to process push notifs, doing any extra work will result in your app using too much battery power).
+
+> In Ads Manager, the business logic is in Java, simply because we know what the payload is, how to create a UI notif from it and what Intent to launch when the user taps on it.
+
+> Furthermore, while iOS is (I think) tied to APNS for push delivery [that seems correct from [firebase website](https://firebase.google.com/docs/cloud-messaging/ios/certs)], on Android there are alternatives, e.g. Amazon Device Messaging. Ideally our APIs would be extensible enough to allow plugging alternative delivery methods.
+
+Form https://github.com/facebook/react-native/issues/3423
+
+### Remote server (Android users Firebase)
+
+Google has moved from [GCM to FCM](https://developers.google.com/cloud-messaging/faq). To implement FCB check the [official guide](https://firebase.google.com/docs/cloud-messaging/).
+At the moment there are two libraries: [react-native-push-notification](https://github.com/zo0r/react-native-push-notification) which uses GCM and [react-native-fcm](https://github.com/evollu/react-native-fcm).
+
+
+
 ## Reference
 
 - Android Virtual Device (AVD)
 - Application Binary Interface (ABI)
 - Android Debug Bridge (ADB)
 - Android Application Package (APK)
+
+## Shortcuts
+
+- open menu `cmd+d #ios` and `cmd+m #android`
