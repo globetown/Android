@@ -3,13 +3,22 @@
 
 import React,{Component} from 'react';
 import {StyleSheet,Text,View} from 'react-native';
+import FCM from 'react-native-fcm';
 
-export default (props) => {
-  return (
-    <View style={styles.container}>
+class Main extends Component {
+
+  componentDidMount() {
+    // FCM.getFCMToken().then(console.log);
+    console.log('FCM',FCM);
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
       <Text>Hello, Bes (Android)!</Text>
-    </View>
-  );
+      </View>
+    );
+  }
 };
 
 const styles = StyleSheet.create({
@@ -20,3 +29,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   }
 });
+
+export default Main;

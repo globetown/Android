@@ -96,6 +96,9 @@ Form https://github.com/facebook/react-native/issues/3423
 Google has moved from [GCM to FCM](https://developers.google.com/cloud-messaging/faq). To implement FCB check the [official guide](https://firebase.google.com/docs/cloud-messaging/).
 At the moment there are two libraries: [react-native-push-notification](https://github.com/zo0r/react-native-push-notification) which uses GCM and [react-native-fcm](https://github.com/evollu/react-native-fcm).
 
+## Questions
+
+- What is Gradle? [stackoverflow](http://stackoverflow.com/questions/16754643/what-is-gradle-in-android-studio)
 
 
 ## Reference
