@@ -31,7 +31,10 @@ platform :android do
       project_dir: "./android",
       task: "assembleRelease"
     )
-    # supply
+    supply(
+      track: "alpha",
+      apk: "./android/app/build/outputs/apk/app-release.apk"
+    )
 
     # sh "your_script.sh"
     # You can also use other beta testing services here
