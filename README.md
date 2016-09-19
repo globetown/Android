@@ -47,6 +47,14 @@ http://blog.tylerbuchea.com/react-native-publishing-an-android-app/
 
 Created and downloaded an `account private key`. In the `Download` folder.
 
+## Version error
+
+```
+Google Api Error: apkUpgradeVersionConflict: APK specifies a version code that has already been used.
+```
+
+Change the version number in `android/app/build.gradle` and `android/app/src/main/AndroidManifest.xml`.
+
 ## Reference
 
 - Android Virtual Device (AVD)
