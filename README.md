@@ -53,7 +53,8 @@ Created and downloaded an `account private key`. In the `Download` folder.
 Google Api Error: apkUpgradeVersionConflict: APK specifies a version code that has already been used.
 ```
 
-Change the version number in `android/app/build.gradle` and `android/app/src/main/AndroidManifest.xml`.
+Change the version number in `android/app/build.gradle`, which seems enough.
+What's the difference with `android/app/src/main/AndroidManifest.xml`?
 
 ## Reference
 
