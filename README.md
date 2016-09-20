@@ -52,6 +52,16 @@ emulator -avd <your-device-name>
 
 http://stackoverflow.com/questions/4974568/how-do-i-launch-the-android-emulator-from-the-command-line
 
+## Cannot launch emulator
+
+```
+Android > emulator -avd foo
+WARNING:./android/base/files/IniFile.cpp:155:Failed to process .ini file /Users/izaaksofer/.android/avd/react.avd/config.ini for reading.
+Segmentation fault: 11
+```
+
+http://stackoverflow.com/questions/35378889/suddenly-cant-start-the-android-emulator-anymore
+
 ## Release to Google Play
 
 http://blog.tylerbuchea.com/react-native-publishing-an-android-app/
