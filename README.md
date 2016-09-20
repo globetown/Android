@@ -62,6 +62,8 @@ Segmentation fault: 11
 
 http://stackoverflow.com/questions/35378889/suddenly-cant-start-the-android-emulator-anymore
 
+This happened to Izaak cause he didn't have memory and so the creation of an AVD failed and was corrupted.
+
 ## Release to Google Play
 
 http://blog.tylerbuchea.com/react-native-publishing-an-android-app/
