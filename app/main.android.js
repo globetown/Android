@@ -8,8 +8,14 @@ import FCM from 'react-native-fcm';
 class Main extends Component {
 
   componentDidMount() {
-    // FCM.getFCMToken().then(console.log);
     console.log('FCM',FCM);
+    // FCM.getFCMToken()
+
+    if (FCM.getBadgeNumber) {
+      FCM.getBadgeNumber()
+    } else {
+      console.log('noop');
+    }
   }
 
   render() {
