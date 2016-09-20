@@ -1,5 +1,11 @@
 # Android
 
+## Resources
+
+- Official training: https://developer.android.com/training/basics/firstapp/running-app.html
+- Basic tutorial for creating ADV: https://www.sitepoint.com/beginning-andoid-create-an-android-virtual-device/
+- Interesting build android first and then link it with RN: http://blog.couchbase.com/2015/november/getting-started-with-react-native-android-and-couchbase-lite
+
 ## First error
 
 When installing Android Studio the env variable `$ANDROID_HOME` was not set up.
@@ -110,10 +116,24 @@ At the moment there are two libraries: [react-native-push-notification](https://
 
 Remember to link dependencies `react-native link react-native-fcm` which will produce this [master 4586e11](https://github.com/globetown/Android/commit/4586e1173dfde3023b57594d833104c9627504cc).
 
+Send notification directly from Firebase:
+[Docs](https://firebase.google.com/docs/cloud-messaging/server)
+[Send message from Firebase](https://console.firebase.google.com/project/awesome-853a0/settings/cloudmessaging)
+[Problems with Firebase](https://crisp.im/blog/why-you-should-never-use-firebase-realtime-database/)
+
 ## Questions
 
 - What is Gradle? [stackoverflow](http://stackoverflow.com/questions/16754643/what-is-gradle-in-android-studio)
 
+```
+Starting the app on emulator-5554 (/Users/besartshyti/Library/Android/sdk/platform-tools/adb -s emulator-5554 shell am start -n com.android/.MainActivity)...
+Starting: Intent { cmp=com.android/.MainActivity }
+Error type 3
+Error: Activity class {com.android/com.android.MainActivity} does not exist.
+[Android]$ react-native run-android
+JS server already running.
+```
+- What is happening there?
 
 ## Reference
 

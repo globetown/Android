@@ -10,12 +10,7 @@ class Main extends Component {
   componentDidMount() {
     console.log('FCM',FCM);
     // FCM.getFCMToken()
-
-    if (FCM.getBadgeNumber) {
-      FCM.getBadgeNumber()
-    } else {
-      console.log('noop');
-    }
+    console.log(FCM.getBadgeNumber())
   }
 
   render() {
