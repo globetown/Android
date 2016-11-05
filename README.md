@@ -21,6 +21,13 @@ export ANDROID_HOME=/Users/besartshyti/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 ```
 
+You may need to install other Android phone images and virtual machines with specific processors architecture. Open the `Android SDK Manager` with:
+
+```sh
+$ android
+
+```
+
 ## Second error
 After setting up the ANDROID_HOME env variable. Got another error:
 ```
